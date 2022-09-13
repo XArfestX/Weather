@@ -51,7 +51,7 @@ class MainFragment : Fragment() {
         checkPermission()
         init()
         updateCurrentCard()
-        requestWeatherData("London")
+        requestWeatherData("Moscow")
     }
 
     private fun init() = with(binding){
@@ -159,6 +159,7 @@ class MainFragment : Fragment() {
         model.liveDataCurrent.value = item
         Log.d("MyLog","CurrentTemp: = ${item.currentTemp}")
         Log.d("MyLog","MaxTemp: = ${item.maxTemp}")
+        Log.d("MyLog","City: = ${item.city}")
 
     }
 

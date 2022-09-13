@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
-    android:backgroundTint="@color/card_blue_bg"
+    android:backgroundTint="@color/card_purple_bg"
     app:cardCornerRadius="5dp"
     app:cardElevation="0dp">
 
@@ -18,7 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/headland_one"
+            android:shadowColor="@color/black"
+            android:shadowRadius="1"
             android:text="Lunes 22.12.2022"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="@font/headland_one"
+            android:shadowColor="@color/black"
+            android:shadowRadius="1"
             android:text="Sunny"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +54,10 @@
             android:id="@+id/tvTemp"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:fontFamily="sans-serif"
             android:gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowRadius="1"
             android:text="25°C"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
