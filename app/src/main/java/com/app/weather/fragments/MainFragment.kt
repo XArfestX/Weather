@@ -65,12 +65,11 @@ class MainFragment : Fragment() {
     private fun updateCurrentCard() = with(binding){
         model.liveDataCurrent.observe(viewLifecycleOwner){
             val maxMinTemp = "${it.maxTemp}°C/${it.minTemp}°C"
-            val currentTemp = "${it.currentTemp}°C"
             tvData.text = it.time
             tvCity.text = it.city
-            tvCurrentTemp.text = currentTemp
+            tvCurrentTemp.text = it.currentTemp.ifEmpty { maxMinTemp }
             tvCondition.text = it.condition
-            tvMaxMin.text = maxMinTemp
+            tvMaxMin.text = if(it.currentTemp.isEmpty()) "" else maxMinTemp
             Picasso.get().load("https:" + it.imageUrl).into(imWeather)
         }
     }
@@ -96,7 +95,7 @@ class MainFragment : Fragment() {
                 "&q=" +
                 city +
                 "&days=" +
-                "3" +
+                "6" +
                 "&aqi=no&alerts=no"
         val queue = Volley.newRequestQueue(context)
         val request = StringRequest(
@@ -127,18 +126,19 @@ class MainFragment : Fragment() {
             val day = daysArray[index] as JSONObject
             val item = WeatherModel(
                 name,
-                day.getString("day"),
+                day.getString("date"),
                 day.getJSONObject("day")
                     .getJSONObject("condition").getString("text"),
                 "",
-                day.getJSONObject("day").getString("maxtemp_c"),
-                day.getJSONObject("day").getString("mintemp_c"),
+                day.getJSONObject("day").getString("maxtemp_c").toFloat().toInt().toString(),
+                day.getJSONObject("day").getString("mintemp_c").toFloat().toInt().toString(),
                 day.getJSONObject("day")
                     .getJSONObject("condition").getString("icon"),
                 day.getJSONArray("hour").toString()
             )
             list.add(item)
         }
+        model.liveDataList.value = list
         return list
     }
 
