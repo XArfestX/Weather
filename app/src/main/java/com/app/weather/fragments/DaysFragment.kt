@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.weather.MainViewModel
-import com.app.weather.R
 import com.app.weather.adapters.WeatherAdapter
 import com.app.weather.adapters.WeatherModel
 import com.app.weather.databinding.FragmentDaysBinding

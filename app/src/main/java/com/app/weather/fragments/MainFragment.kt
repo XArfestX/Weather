@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
-import android.media.audiofx.Equalizer
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -24,12 +23,10 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.app.weather.DialogManager
 import com.app.weather.MainViewModel
-import com.app.weather.R
 import com.app.weather.adapters.VpAdapter
 import com.app.weather.adapters.WeatherModel
 import com.app.weather.databinding.FragmentMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
@@ -37,7 +34,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
-const val API_KEY = "7c6d391f52a34bdbb15175839221009"
+const val API_KEY = "5fc9c36ed73b4b5fb80234229222409"
 
 class MainFragment : Fragment() {
     private lateinit var fLocationClient: FusedLocationProviderClient
